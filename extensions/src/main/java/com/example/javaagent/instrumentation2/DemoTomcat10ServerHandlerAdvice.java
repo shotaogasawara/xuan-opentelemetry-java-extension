@@ -7,14 +7,13 @@ package com.example.javaagent.instrumentation2;
 
 import static com.example.javaagent.instrumentation2.DemoTomcat10Singletons.helper;
 
-import org.apache.coyote.Request;
-import org.apache.coyote.Response;
-
 import io.opentelemetry.context.Context;
 import io.opentelemetry.context.Scope;
 import io.opentelemetry.javaagent.bootstrap.Java8BytecodeBridge;
 import io.opentelemetry.javaagent.bootstrap.http.HttpServerResponseCustomizerHolder;
 import net.bytebuddy.asm.Advice;
+import org.apache.coyote.Request;
+import org.apache.coyote.Response;
 
 @SuppressWarnings("unused")
 public class DemoTomcat10ServerHandlerAdvice {
