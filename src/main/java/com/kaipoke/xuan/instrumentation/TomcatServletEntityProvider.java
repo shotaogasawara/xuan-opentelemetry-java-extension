@@ -1,4 +1,4 @@
-package com.kaipoke.xuan.opentelemetry.javaagent.extensions.instrumentation;
+package com.kaipoke.xuan.instrumentation;
 
 import org.apache.coyote.Request;
 import org.apache.coyote.Response;
@@ -12,7 +12,7 @@ import org.apache.coyote.Response;
  * @param <REQUEST> HttpServletRequest instance
  * @param <RESPONSE> HttpServletResponse instance
  */
-public interface DemoTomcatServletEntityProvider<REQUEST, RESPONSE> {
+public interface TomcatServletEntityProvider<REQUEST, RESPONSE> {
   REQUEST getServletRequest(Request request);
 
   RESPONSE getServletResponse(Response response);

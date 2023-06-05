@@ -1,13 +1,13 @@
-package com.kaipoke.xuan.opentelemetry.javaagent.extensions.instrumentation;
+package com.kaipoke.xuan.instrumentation;
 
-import static com.kaipoke.xuan.opentelemetry.javaagent.extensions.instrumentation.DemoTomcatHelper.messageBytesToString;
+import static com.kaipoke.xuan.instrumentation.TomcatHelper.messageBytesToString;
 
 import io.opentelemetry.instrumentation.api.instrumenter.net.NetServerAttributesGetter;
 import javax.annotation.Nullable;
 import org.apache.coyote.ActionCode;
 import org.apache.coyote.Request;
 
-public class DemoTomcatNetAttributesGetter implements NetServerAttributesGetter<Request> {
+public class TomcatNetAttributesGetter implements NetServerAttributesGetter<Request> {
 
   @Nullable
   @Override

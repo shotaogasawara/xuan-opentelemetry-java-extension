@@ -1,16 +1,15 @@
-package com.kaipoke.xuan.opentelemetry.javaagent.extensions.instrumentation;
+package com.kaipoke.xuan.instrumentation;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.coyote.Request;
 import org.apache.coyote.Response;
 
-public class DemoTomcat10ServletEntityProvider
-    implements DemoTomcatServletEntityProvider<HttpServletRequest, HttpServletResponse> {
-  public static final DemoTomcat10ServletEntityProvider INSTANCE =
-      new DemoTomcat10ServletEntityProvider();
+public class Tomcat10ServletEntityProvider
+    implements TomcatServletEntityProvider<HttpServletRequest, HttpServletResponse> {
+  public static final Tomcat10ServletEntityProvider INSTANCE = new Tomcat10ServletEntityProvider();
 
-  private DemoTomcat10ServletEntityProvider() {}
+  private Tomcat10ServletEntityProvider() {}
 
   @Override
   public HttpServletRequest getServletRequest(Request request) {

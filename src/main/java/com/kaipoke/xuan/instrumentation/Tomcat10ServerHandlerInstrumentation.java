@@ -1,4 +1,4 @@
-package com.kaipoke.xuan.opentelemetry.javaagent.extensions.instrumentation;
+package com.kaipoke.xuan.instrumentation;
 
 import static net.bytebuddy.matcher.ElementMatchers.isMethod;
 import static net.bytebuddy.matcher.ElementMatchers.isPublic;
@@ -11,11 +11,11 @@ import io.opentelemetry.javaagent.extension.instrumentation.TypeTransformer;
 import net.bytebuddy.description.type.TypeDescription;
 import net.bytebuddy.matcher.ElementMatcher;
 
-public class DemoTomcat10ServerHandlerInstrumentation implements TypeInstrumentation {
+public class Tomcat10ServerHandlerInstrumentation implements TypeInstrumentation {
   private final String handlerAdviceClassName;
   private final String attachResponseAdviceClassName;
 
-  public DemoTomcat10ServerHandlerInstrumentation(
+  public Tomcat10ServerHandlerInstrumentation(
       String handlerAdviceClassName, String attachResponseAdviceClassName) {
     this.handlerAdviceClassName = handlerAdviceClassName;
     this.attachResponseAdviceClassName = attachResponseAdviceClassName;

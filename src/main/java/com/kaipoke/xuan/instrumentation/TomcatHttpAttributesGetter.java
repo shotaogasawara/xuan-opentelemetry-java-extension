@@ -1,6 +1,6 @@
-package com.kaipoke.xuan.opentelemetry.javaagent.extensions.instrumentation;
+package com.kaipoke.xuan.instrumentation;
 
-import static com.kaipoke.xuan.opentelemetry.javaagent.extensions.instrumentation.DemoTomcatHelper.messageBytesToString;
+import static com.kaipoke.xuan.instrumentation.TomcatHelper.messageBytesToString;
 
 import io.opentelemetry.instrumentation.api.instrumenter.http.HttpServerAttributesGetter;
 import java.util.Collections;
@@ -10,8 +10,7 @@ import org.apache.coyote.Request;
 import org.apache.coyote.Response;
 import org.apache.tomcat.util.buf.MessageBytes;
 
-public class DemoTomcatHttpAttributesGetter
-    implements HttpServerAttributesGetter<Request, Response> {
+public class TomcatHttpAttributesGetter implements HttpServerAttributesGetter<Request, Response> {
 
   @Override
   public String getMethod(Request request) {

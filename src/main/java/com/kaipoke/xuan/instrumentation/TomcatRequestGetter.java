@@ -1,10 +1,10 @@
-package com.kaipoke.xuan.opentelemetry.javaagent.extensions.instrumentation;
+package com.kaipoke.xuan.instrumentation;
 
 import io.opentelemetry.context.propagation.TextMapGetter;
 import java.util.Collections;
 import org.apache.coyote.Request;
 
-enum DemoTomcatRequestGetter implements TextMapGetter<Request> {
+enum TomcatRequestGetter implements TextMapGetter<Request> {
   INSTANCE;
 
   @Override

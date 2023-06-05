@@ -1,4 +1,4 @@
-package com.kaipoke.xuan.opentelemetry.javaagent.extensions.instrumentation;
+package com.kaipoke.xuan.instrumentation;
 
 import io.opentelemetry.api.GlobalOpenTelemetry;
 import io.opentelemetry.instrumentation.api.instrumenter.Instrumenter;
@@ -14,14 +14,14 @@ import io.opentelemetry.javaagent.instrumentation.servlet.ServletErrorCauseExtra
 import org.apache.coyote.Request;
 import org.apache.coyote.Response;
 
-public final class DemoTomcatInstrumenterFactory {
+public final class TomcatInstrumenterFactory {
 
-  private DemoTomcatInstrumenterFactory() {}
+  private TomcatInstrumenterFactory() {}
 
   public static <REQUEST, RESPONSE> Instrumenter<Request, Response> create(
       String instrumentationName, ServletAccessor<REQUEST, RESPONSE> accessor) {
-    DemoTomcatHttpAttributesGetter httpAttributesGetter = new DemoTomcatHttpAttributesGetter();
-    DemoTomcatNetAttributesGetter netAttributesGetter = new DemoTomcatNetAttributesGetter();
+    TomcatHttpAttributesGetter httpAttributesGetter = new TomcatHttpAttributesGetter();
+    TomcatNetAttributesGetter netAttributesGetter = new TomcatNetAttributesGetter();
 
     return Instrumenter.<Request, Response>builder(
             GlobalOpenTelemetry.get(),
@@ -42,6 +42,6 @@ public final class DemoTomcatInstrumenterFactory {
                     .recordException()
                     .init(context))
         .addOperationMetrics(HttpServerMetrics.get())
-        .buildServerInstrumenter(DemoTomcatRequestGetter.INSTANCE);
+        .buildServerInstrumenter(TomcatRequestGetter.INSTANCE);
   }
 }

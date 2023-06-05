@@ -1,4 +1,4 @@
-package com.kaipoke.xuan.opentelemetry.javaagent.extensions.instrumentation;
+package com.kaipoke.xuan.instrumentation;
 
 import io.opentelemetry.context.Context;
 import io.opentelemetry.context.Scope;
@@ -9,14 +9,14 @@ import org.apache.coyote.Request;
 import org.apache.coyote.Response;
 import org.apache.tomcat.util.buf.MessageBytes;
 
-public class DemoTomcatHelper<REQUEST, RESPONSE> {
+public class TomcatHelper<REQUEST, RESPONSE> {
   protected final Instrumenter<Request, Response> instrumenter;
-  protected final DemoTomcatServletEntityProvider<REQUEST, RESPONSE> servletEntityProvider;
+  protected final TomcatServletEntityProvider<REQUEST, RESPONSE> servletEntityProvider;
   private final ServletHelper<REQUEST, RESPONSE> servletHelper;
 
-  public DemoTomcatHelper(
+  public TomcatHelper(
       Instrumenter<Request, Response> instrumenter,
-      DemoTomcatServletEntityProvider<REQUEST, RESPONSE> servletEntityProvider,
+      TomcatServletEntityProvider<REQUEST, RESPONSE> servletEntityProvider,
       ServletHelper<REQUEST, RESPONSE> servletHelper) {
     this.instrumenter = instrumenter;
     this.servletEntityProvider = servletEntityProvider;

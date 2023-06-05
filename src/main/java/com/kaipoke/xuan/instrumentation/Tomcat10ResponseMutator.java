@@ -1,12 +1,12 @@
-package com.kaipoke.xuan.opentelemetry.javaagent.extensions.instrumentation;
+package com.kaipoke.xuan.instrumentation;
 
 import io.opentelemetry.javaagent.bootstrap.http.HttpServerResponseMutator;
 import org.apache.coyote.Response;
 
-public enum DemoTomcat10ResponseMutator implements HttpServerResponseMutator<Response> {
+public enum Tomcat10ResponseMutator implements HttpServerResponseMutator<Response> {
   INSTANCE;
 
-  DemoTomcat10ResponseMutator() {}
+  Tomcat10ResponseMutator() {}
 
   @Override
   public void appendHeader(Response response, String name, String value) {

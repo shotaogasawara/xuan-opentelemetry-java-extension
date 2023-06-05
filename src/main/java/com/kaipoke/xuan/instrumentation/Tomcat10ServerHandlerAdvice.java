@@ -1,6 +1,6 @@
-package com.kaipoke.xuan.opentelemetry.javaagent.extensions.instrumentation;
+package com.kaipoke.xuan.instrumentation;
 
-import static com.kaipoke.xuan.opentelemetry.javaagent.extensions.instrumentation.DemoTomcat10Singletons.helper;
+import static com.kaipoke.xuan.instrumentation.Tomcat10Singletons.helper;
 
 import io.opentelemetry.context.Context;
 import io.opentelemetry.context.Scope;
@@ -11,7 +11,7 @@ import org.apache.coyote.Request;
 import org.apache.coyote.Response;
 
 @SuppressWarnings("unused")
-public class DemoTomcat10ServerHandlerAdvice {
+public class Tomcat10ServerHandlerAdvice {
 
   @Advice.OnMethodEnter(suppress = Throwable.class)
   public static void onEnter(
@@ -29,7 +29,7 @@ public class DemoTomcat10ServerHandlerAdvice {
       scope = context.makeCurrent();
       System.out.println("call mutator");
       HttpServerResponseCustomizerHolder.getCustomizer()
-          .customize(context, response, DemoTomcat10ResponseMutator.INSTANCE);
+          .customize(context, response, Tomcat10ResponseMutator.INSTANCE);
     } catch (Throwable e) {
       System.out.println("Some error happened!");
       System.out.println(e.getClass());

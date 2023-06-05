@@ -1,4 +1,4 @@
-package com.kaipoke.xuan.opentelemetry.javaagent.extensions.instrumentation;
+package com.kaipoke.xuan.instrumentation;
 
 import static io.opentelemetry.javaagent.extension.matcher.AgentElementMatchers.hasClassesNamed;
 import static java.util.Collections.singletonList;
@@ -10,9 +10,9 @@ import java.util.List;
 import net.bytebuddy.matcher.ElementMatcher;
 
 @AutoService(InstrumentationModule.class)
-public class DemoTomcat10InstrumentationModule extends InstrumentationModule {
-  public DemoTomcat10InstrumentationModule() {
-    super("demo2-tomcat", "demo2-tomcat-10.0");
+public class Tomcat10InstrumentationModule extends InstrumentationModule {
+  public Tomcat10InstrumentationModule() {
+    super("xuan-tomcat", "xuan-tomcat-10.0");
   }
 
   @Override
@@ -23,11 +23,11 @@ public class DemoTomcat10InstrumentationModule extends InstrumentationModule {
 
   @Override
   public List<TypeInstrumentation> typeInstrumentations() {
-    String packageName = DemoTomcat10InstrumentationModule.class.getPackage().getName();
+    String packageName = Tomcat10InstrumentationModule.class.getPackage().getName();
     return singletonList(
-        new DemoTomcat10ServerHandlerInstrumentation(
-            packageName + ".DemoTomcat10ServerHandlerAdvice",
-            packageName + ".DemoTomcat10AttachResponseAdvice"));
+        new Tomcat10ServerHandlerInstrumentation(
+            packageName + ".Tomcat10ServerHandlerAdvice",
+            packageName + ".Tomcat10AttachResponseAdvice"));
   }
 
   @Override
@@ -39,14 +39,4 @@ public class DemoTomcat10InstrumentationModule extends InstrumentationModule {
         || className.startsWith("io.opentelemetry.instrumentation")
             && !className.startsWith("io.opentelemetry.instrumentation.api");
   }
-
-  // どうもこちらで
-  // @Override
-  // public List<String> getAdditionalHelperClassNames() {
-  //   return Arrays.asList(
-  //     DemoTomcat10Singletons.class.getName(),
-  //     DemoTomcat10ServerHandlerAdvice.class.getName()
-
-  //     );
-  // }
 }
