@@ -1,9 +1,4 @@
-/*
- * Copyright The OpenTelemetry Authors
- * SPDX-License-Identifier: Apache-2.0
- */
-
-package com.example.javaagent.instrumentation2;
+package com.kaipoke.xuan.opentelemetry.javaagent.extensions.instrumentation;
 
 import static io.opentelemetry.javaagent.extension.matcher.AgentElementMatchers.hasClassesNamed;
 import static java.util.Collections.singletonList;
@@ -37,7 +32,8 @@ public class DemoTomcat10InstrumentationModule extends InstrumentationModule {
 
   @Override
   public boolean isHelperClass(String className) {
-    return className.startsWith("com.example.javaagent.instrumentation2")
+    return className.startsWith(
+            "com.kaipoke.xuan.opentelemetry.javaagent.extensions.instrumentation")
         || className.startsWith("io.opentelemetry.javaagent.instrumentation")
         || className.startsWith("io.opentelemetry.javaagent.bootstrap")
         || className.startsWith("io.opentelemetry.instrumentation")

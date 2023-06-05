@@ -1,9 +1,4 @@
-/*
- * Copyright The OpenTelemetry Authors
- * SPDX-License-Identifier: Apache-2.0
- */
-
-package com.example.javaagent.instrumentation2;
+package com.kaipoke.xuan.opentelemetry.javaagent.extensions.instrumentation;
 
 import io.opentelemetry.context.propagation.TextMapGetter;
 import java.util.Collections;

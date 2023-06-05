@@ -1,9 +1,4 @@
-/*
- * Copyright The OpenTelemetry Authors
- * SPDX-License-Identifier: Apache-2.0
- */
-
-package com.example.javaagent.instrumentation2;
+package com.kaipoke.xuan.opentelemetry.javaagent.extensions.instrumentation;
 
 import io.opentelemetry.javaagent.bootstrap.http.HttpServerResponseMutator;
 import org.apache.coyote.Response;

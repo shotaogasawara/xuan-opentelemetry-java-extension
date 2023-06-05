@@ -1,9 +1,4 @@
-/*
- * Copyright The OpenTelemetry Authors
- * SPDX-License-Identifier: Apache-2.0
- */
-
-package com.example.javaagent.instrumentation2;
+package com.kaipoke.xuan.opentelemetry.javaagent.extensions.instrumentation;
 
 import io.opentelemetry.instrumentation.api.instrumenter.Instrumenter;
 import io.opentelemetry.javaagent.instrumentation.servlet.v5_0.Servlet5Accessor;
@@ -14,7 +9,8 @@ import org.apache.coyote.Request;
 import org.apache.coyote.Response;
 
 public final class DemoTomcat10Singletons {
-  private static final String INSTRUMENTATION_NAME = "com.example.javaagent.instrumentation2";
+  private static final String INSTRUMENTATION_NAME =
+      "com.kaipoke.xuan.opentelemetry.javaagent.extensions.instrumentation";
   private static final Instrumenter<Request, Response> INSTRUMENTER =
       DemoTomcatInstrumenterFactory.create(INSTRUMENTATION_NAME, Servlet5Accessor.INSTANCE);
   private static final DemoTomcatHelper<HttpServletRequest, HttpServletResponse> HELPER =

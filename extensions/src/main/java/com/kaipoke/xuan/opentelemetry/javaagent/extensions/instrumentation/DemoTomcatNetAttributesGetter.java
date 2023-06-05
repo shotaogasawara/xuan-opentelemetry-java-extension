@@ -1,11 +1,6 @@
-/*
- * Copyright The OpenTelemetry Authors
- * SPDX-License-Identifier: Apache-2.0
- */
+package com.kaipoke.xuan.opentelemetry.javaagent.extensions.instrumentation;
 
-package com.example.javaagent.instrumentation2;
-
-import static com.example.javaagent.instrumentation2.DemoTomcatHelper.messageBytesToString;
+import static com.kaipoke.xuan.opentelemetry.javaagent.extensions.instrumentation.DemoTomcatHelper.messageBytesToString;
 
 import io.opentelemetry.instrumentation.api.instrumenter.net.NetServerAttributesGetter;
 import javax.annotation.Nullable;
