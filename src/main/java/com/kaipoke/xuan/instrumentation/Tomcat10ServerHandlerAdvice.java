@@ -2,13 +2,14 @@ package com.kaipoke.xuan.instrumentation;
 
 import static com.kaipoke.xuan.instrumentation.Tomcat10Singletons.helper;
 
+import org.apache.coyote.Request;
+import org.apache.coyote.Response;
+
 import io.opentelemetry.context.Context;
 import io.opentelemetry.context.Scope;
 import io.opentelemetry.javaagent.bootstrap.Java8BytecodeBridge;
 import io.opentelemetry.javaagent.bootstrap.http.HttpServerResponseCustomizerHolder;
 import net.bytebuddy.asm.Advice;
-import org.apache.coyote.Request;
-import org.apache.coyote.Response;
 
 @SuppressWarnings("unused")
 public class Tomcat10ServerHandlerAdvice {
@@ -27,7 +28,7 @@ public class Tomcat10ServerHandlerAdvice {
       }
       context = helper().start(parentContext, request);
       scope = context.makeCurrent();
-      System.out.println("call mutator");
+      System.out.println("Hi!! ServerHandler called");
       HttpServerResponseCustomizerHolder.getCustomizer()
           .customize(context, response, Tomcat10ResponseMutator.INSTANCE);
     } catch (Throwable e) {

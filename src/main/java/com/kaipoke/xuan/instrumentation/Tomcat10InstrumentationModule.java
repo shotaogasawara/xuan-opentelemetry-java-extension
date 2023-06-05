@@ -3,10 +3,12 @@ package com.kaipoke.xuan.instrumentation;
 import static io.opentelemetry.javaagent.extension.matcher.AgentElementMatchers.hasClassesNamed;
 import static java.util.Collections.singletonList;
 
+import java.util.List;
+
 import com.google.auto.service.AutoService;
+
 import io.opentelemetry.javaagent.extension.instrumentation.InstrumentationModule;
 import io.opentelemetry.javaagent.extension.instrumentation.TypeInstrumentation;
-import java.util.List;
 import net.bytebuddy.matcher.ElementMatcher;
 
 @AutoService(InstrumentationModule.class)
@@ -33,7 +35,7 @@ public class Tomcat10InstrumentationModule extends InstrumentationModule {
   @Override
   public boolean isHelperClass(String className) {
     return className.startsWith(
-            "com.kaipoke.xuan.opentelemetry.javaagent.extensions.instrumentation")
+            "com.kaipoke.xuan.instrumentation")
         || className.startsWith("io.opentelemetry.javaagent.instrumentation")
         || className.startsWith("io.opentelemetry.javaagent.bootstrap")
         || className.startsWith("io.opentelemetry.instrumentation")
