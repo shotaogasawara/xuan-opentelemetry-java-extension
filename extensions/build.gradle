@@ -50,14 +50,9 @@ dependencies {
   implementation(platform("io.opentelemetry.instrumentation:opentelemetry-instrumentation-bom:${versions.opentelemetryJavaagent}"))
   implementation(platform("io.opentelemetry.instrumentation:opentelemetry-instrumentation-bom-alpha:${versions.opentelemetryJavaagentAlpha}"))
 
-
-  // 以下はruntimeの依存関係を参照すると思われるのでcompileonlyで大丈夫なはず
-
   // servletの参照に必要になるので追加
   implementation("io.opentelemetry.javaagent.instrumentation:opentelemetry-javaagent-servlet-5.0:${versions.opentelemetryJavaagentAlpha}")
   implementation("io.opentelemetry.javaagent.instrumentation:opentelemetry-javaagent-servlet-common-bootstrap:${versions.opentelemetryJavaagentAlpha}")
-
-  // // 以下についてはversionはbomによって調整されるので指定しないほうがよさそう
 
   /*
   Interfaces and SPIs that we implement. We use `compileOnly` dependency because during
