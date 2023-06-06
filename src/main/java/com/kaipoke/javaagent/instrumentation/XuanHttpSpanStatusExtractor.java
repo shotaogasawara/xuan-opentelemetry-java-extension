@@ -1,5 +1,7 @@
 package com.kaipoke.javaagent.instrumentation;
 
+import java.util.List;
+
 import javax.annotation.Nullable;
 
 import io.opentelemetry.api.trace.StatusCode;
@@ -56,6 +58,15 @@ public final class XuanHttpSpanStatusExtractor<REQUEST, RESPONSE>
     if (response != null) {
       Integer statusCode = getter.getStatusCode(request, response, error);
       if (statusCode != null) {
+        // ヘッダにgraphqlエラーが検出された場合はstatusをエラーに変更する
+        List<String> errorTypes = getter.getResponseHeader(request, response, "x-graphql-error-type");
+        if(!errorTypes.isEmpty()){
+          spanStatusBuilder.setStatus(StatusCode.ERROR);
+          System.out.println("Set status code to error.");
+          return;
+        }
+
+        // それ以外の場合はhttpステータスコードに基づいて判定
         StatusCode statusCodeObj = statusConverter.statusFromHttpStatus(statusCode);
         if (statusCodeObj == StatusCode.ERROR) {
           spanStatusBuilder.setStatus(statusCodeObj);
