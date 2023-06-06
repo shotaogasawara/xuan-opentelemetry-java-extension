@@ -8,4 +8,4 @@ pluginManagement {
   }
 }
 
-rootProject.name = 'xuan-opentelemetry-extensions'
+rootProject.name = 'xuan-opentelemetry-java-extension'
