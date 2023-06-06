@@ -36,12 +36,12 @@ repositories {
   mavenCentral()
 }
 
-// spotless {
-//   java {
-//     googleJavaFormat()
-//     target("src/**/*.java")
-//   }
-// }
+spotless {
+  java {
+    googleJavaFormat()
+    target("src/**/*.java")
+  }
+}
 
 dependencies {
   implementation(platform("io.opentelemetry:opentelemetry-bom:${versions.opentelemetrySdk}"))

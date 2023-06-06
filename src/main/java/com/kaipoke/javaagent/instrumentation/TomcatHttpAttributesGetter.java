@@ -2,16 +2,13 @@ package com.kaipoke.javaagent.instrumentation;
 
 import static com.kaipoke.javaagent.instrumentation.TomcatHelper.messageBytesToString;
 
+import io.opentelemetry.instrumentation.api.instrumenter.http.HttpServerAttributesGetter;
 import java.util.Collections;
 import java.util.List;
-
 import javax.annotation.Nullable;
-
 import org.apache.coyote.Request;
 import org.apache.coyote.Response;
 import org.apache.tomcat.util.buf.MessageBytes;
-
-import io.opentelemetry.instrumentation.api.instrumenter.http.HttpServerAttributesGetter;
 
 public class TomcatHttpAttributesGetter implements HttpServerAttributesGetter<Request, Response> {
 

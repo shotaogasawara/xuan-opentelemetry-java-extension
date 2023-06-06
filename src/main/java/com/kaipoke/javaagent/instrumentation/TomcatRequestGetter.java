@@ -1,10 +1,8 @@
 package com.kaipoke.javaagent.instrumentation;
 
-import java.util.Collections;
-
-import org.apache.coyote.Request;
-
 import io.opentelemetry.context.propagation.TextMapGetter;
+import java.util.Collections;
+import org.apache.coyote.Request;
 
 enum TomcatRequestGetter implements TextMapGetter<Request> {
   INSTANCE;

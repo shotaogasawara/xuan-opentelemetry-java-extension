@@ -1,8 +1,5 @@
 package com.kaipoke.javaagent.instrumentation;
 
-import org.apache.coyote.Request;
-import org.apache.coyote.Response;
-
 import io.opentelemetry.api.GlobalOpenTelemetry;
 import io.opentelemetry.instrumentation.api.instrumenter.Instrumenter;
 import io.opentelemetry.instrumentation.api.instrumenter.http.HttpRouteHolder;
@@ -14,6 +11,8 @@ import io.opentelemetry.javaagent.bootstrap.internal.CommonConfig;
 import io.opentelemetry.javaagent.bootstrap.servlet.AppServerBridge;
 import io.opentelemetry.javaagent.instrumentation.servlet.ServletAccessor;
 import io.opentelemetry.javaagent.instrumentation.servlet.ServletErrorCauseExtractor;
+import org.apache.coyote.Request;
+import org.apache.coyote.Response;
 
 public final class TomcatInstrumenterFactory {
 

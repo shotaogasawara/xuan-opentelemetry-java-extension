@@ -1,10 +1,9 @@
 package com.kaipoke.javaagent.instrumentation;
 
-import org.apache.coyote.Request;
-import org.apache.coyote.Response;
-
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.apache.coyote.Request;
+import org.apache.coyote.Response;
 
 public class Tomcat10ServletEntityProvider
     implements TomcatServletEntityProvider<HttpServletRequest, HttpServletResponse> {

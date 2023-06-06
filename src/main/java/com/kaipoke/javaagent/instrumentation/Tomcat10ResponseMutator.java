@@ -1,8 +1,7 @@
 package com.kaipoke.javaagent.instrumentation;
 
-import org.apache.coyote.Response;
-
 import io.opentelemetry.javaagent.bootstrap.http.HttpServerResponseMutator;
+import org.apache.coyote.Response;
 
 public enum Tomcat10ResponseMutator implements HttpServerResponseMutator<Response> {
   INSTANCE;

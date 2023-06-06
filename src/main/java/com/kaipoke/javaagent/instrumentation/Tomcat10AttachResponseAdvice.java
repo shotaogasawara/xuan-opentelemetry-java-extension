@@ -2,10 +2,9 @@ package com.kaipoke.javaagent.instrumentation;
 
 import static com.kaipoke.javaagent.instrumentation.Tomcat10Singletons.helper;
 
+import net.bytebuddy.asm.Advice;
 import org.apache.coyote.Request;
 import org.apache.coyote.Response;
-
-import net.bytebuddy.asm.Advice;
 
 @SuppressWarnings("unused")
 public class Tomcat10AttachResponseAdvice {
