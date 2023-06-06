@@ -2,13 +2,14 @@ package com.kaipoke.javaagent.instrumentation;
 
 import static com.kaipoke.javaagent.instrumentation.Tomcat10Singletons.helper;
 
+import org.apache.coyote.Request;
+import org.apache.coyote.Response;
+
 import io.opentelemetry.context.Context;
 import io.opentelemetry.context.Scope;
 import io.opentelemetry.javaagent.bootstrap.Java8BytecodeBridge;
 import io.opentelemetry.javaagent.bootstrap.http.HttpServerResponseCustomizerHolder;
 import net.bytebuddy.asm.Advice;
-import org.apache.coyote.Request;
-import org.apache.coyote.Response;
 
 @SuppressWarnings("unused")
 public class Tomcat10ServerHandlerAdvice {
@@ -20,22 +21,14 @@ public class Tomcat10ServerHandlerAdvice {
       @Advice.Local("otelContext") Context context,
       @Advice.Local("otelScope") Scope scope) {
 
-    try {
-      Context parentContext = Java8BytecodeBridge.currentContext();
-      if (!helper().shouldStart(parentContext, request)) {
-        return;
-      }
-      context = helper().start(parentContext, request);
-      scope = context.makeCurrent();
-      System.out.println("Hi!! ServerHandler called");
-      HttpServerResponseCustomizerHolder.getCustomizer()
-          .customize(context, response, Tomcat10ResponseMutator.INSTANCE);
-    } catch (Throwable e) {
-      System.out.println("Some error happened!");
-      System.out.println(e.getClass());
-      System.out.println(e.getMessage());
-      throw e;
+    Context parentContext = Java8BytecodeBridge.currentContext();
+    if (!helper().shouldStart(parentContext, request)) {
+      return;
     }
+    context = helper().start(parentContext, request);
+    scope = context.makeCurrent();
+    HttpServerResponseCustomizerHolder.getCustomizer()
+        .customize(context, response, Tomcat10ResponseMutator.INSTANCE);
   }
 
   @Advice.OnMethodExit(onThrowable = Throwable.class, suppress = Throwable.class)
