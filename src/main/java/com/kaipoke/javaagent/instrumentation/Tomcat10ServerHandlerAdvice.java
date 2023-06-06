@@ -1,6 +1,6 @@
-package com.kaipoke.xuan.instrumentation;
+package com.kaipoke.javaagent.instrumentation;
 
-import static com.kaipoke.xuan.instrumentation.Tomcat10Singletons.helper;
+import static com.kaipoke.javaagent.instrumentation.Tomcat10Singletons.helper;
 
 import org.apache.coyote.Request;
 import org.apache.coyote.Response;

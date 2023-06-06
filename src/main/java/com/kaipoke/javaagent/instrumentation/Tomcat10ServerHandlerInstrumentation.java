@@ -1,4 +1,4 @@
-package com.kaipoke.xuan.instrumentation;
+package com.kaipoke.javaagent.instrumentation;
 
 import static net.bytebuddy.matcher.ElementMatchers.isMethod;
 import static net.bytebuddy.matcher.ElementMatchers.isPublic;

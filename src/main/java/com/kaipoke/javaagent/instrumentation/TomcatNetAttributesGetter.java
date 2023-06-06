@@ -1,11 +1,13 @@
-package com.kaipoke.xuan.instrumentation;
+package com.kaipoke.javaagent.instrumentation;
 
-import static com.kaipoke.xuan.instrumentation.TomcatHelper.messageBytesToString;
+import static com.kaipoke.javaagent.instrumentation.TomcatHelper.messageBytesToString;
 
-import io.opentelemetry.instrumentation.api.instrumenter.net.NetServerAttributesGetter;
 import javax.annotation.Nullable;
+
 import org.apache.coyote.ActionCode;
 import org.apache.coyote.Request;
+
+import io.opentelemetry.instrumentation.api.instrumenter.net.NetServerAttributesGetter;
 
 public class TomcatNetAttributesGetter implements NetServerAttributesGetter<Request> {
 

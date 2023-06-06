@@ -1,12 +1,13 @@
-package com.kaipoke.xuan.instrumentation;
+package com.kaipoke.javaagent.instrumentation;
+
+import org.apache.coyote.Request;
+import org.apache.coyote.Response;
 
 import io.opentelemetry.instrumentation.api.instrumenter.Instrumenter;
 import io.opentelemetry.javaagent.instrumentation.servlet.v5_0.Servlet5Accessor;
 import io.opentelemetry.javaagent.instrumentation.servlet.v5_0.Servlet5Singletons;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.apache.coyote.Request;
-import org.apache.coyote.Response;
 
 public final class Tomcat10Singletons {
   private static final String INSTRUMENTATION_NAME =

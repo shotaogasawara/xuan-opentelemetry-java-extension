@@ -1,4 +1,4 @@
-package com.kaipoke.xuan.instrumentation;
+package com.kaipoke.javaagent.instrumentation;
 
 import static io.opentelemetry.javaagent.extension.matcher.AgentElementMatchers.hasClassesNamed;
 import static java.util.Collections.singletonList;
