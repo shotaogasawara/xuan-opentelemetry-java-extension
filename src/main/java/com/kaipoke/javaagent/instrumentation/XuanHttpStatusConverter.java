@@ -3,7 +3,7 @@ package com.kaipoke.javaagent.instrumentation;
 import io.opentelemetry.api.trace.StatusCode;
 
 // https://github.com/open-telemetry/opentelemetry-specification/blob/master/specification/trace/semantic_conventions/http.md#status
-enum HttpStatusConverter {
+enum XuanHttpStatusConverter {
   SERVER {
     @Override
     StatusCode statusFromHttpStatus(int httpStatus) {
